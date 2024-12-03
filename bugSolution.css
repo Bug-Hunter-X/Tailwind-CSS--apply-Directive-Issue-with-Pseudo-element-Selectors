@@ -1,0 +1,16 @@
+The solution is to avoid using `@apply` with classes containing pseudo-element selectors. Instead, apply these styles directly using standard CSS rules.
+
+```tailwindcss
+/* bugSolution.css */
+.my-custom-class {
+  /* ... other styles ... */
+}
+.my-custom-class::before {
+  content: "Some Text";
+  background-color: blue;
+}
+
+<div class="my-custom-class"></div>
+```
+
+This approach ensures that the styles are applied correctly to the pseudo-element without interference from the `@apply` directive.
