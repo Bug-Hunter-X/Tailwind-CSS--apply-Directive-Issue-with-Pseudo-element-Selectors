@@ -1,0 +1,16 @@
+This bug occurs when using Tailwind CSS's `@apply` directive with a class that contains a pseudo-element selector (e.g., `::before`, `::after`).  The `@apply` directive doesn't properly handle these selectors and can lead to unexpected behavior or styling issues.
+
+For example:
+
+```tailwindcss
+@layer utilities {
+  .my-custom-class::before {
+    content: "Some Text";
+    background-color: blue;
+  }
+}
+
+<div class="my-custom-class"></div>
+```
+
+If you try to apply this class using `@apply` in another class or style rule, it likely won't work as expected, or might cause unexpected style changes in other parts of the app.
